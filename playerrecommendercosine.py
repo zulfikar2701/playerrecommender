@@ -11,17 +11,17 @@ st.set_page_config(
 
 @st.cache(show_spinner=False)
 def getData():
-    player_df = pd.read_pickle(r'pickledata/data_out_df.pickle')
-    with open(r'pickledata/data_outfield_player_ID.pickle', 'rb') as file:
+    player_df = pd.read_pickle(r'Pickle Data/data_out_df.pickle')
+    with open(r'Pickle Data/data_outfield_player_ID.pickle', 'rb') as file:
         player_ID = pickle.load(file)
-    with open(r'pickledata/data_out_engine.pickle', 'rb') as file:
+    with open(r'Pickle Data/data_out_engine.pickle', 'rb') as file:
         engine = pickle.load(file)
 
     gk_df = pd.read_pickle(
-        r'pickledata/data_gk_df.pickle')
-    with open(r'pickledata/data_gk_player_ID.pickle', 'rb') as file:
+        r'Pickle Data/data_gk_df.pickle')
+    with open(r'Pickle Data/data_gk_player_ID.pickle', 'rb') as file:
         gk_ID = pickle.load(file)
-    with open(r'pickledata/data_gk_engine.pickle', 'rb') as file:
+    with open(r'Pickle Data/data_gk_engine.pickle', 'rb') as file:
         gk_engine = pickle.load(file)
 
     return [player_df, player_ID, engine], [gk_df, gk_ID, gk_engine]
@@ -123,7 +123,7 @@ with result:
         df_res.rename(columns={'Pos': 'Position', 'Comp': 'League'}, inplace=True)
         return df_res
     
-    
+
     sims = engine[query]
     df_type = 'outfield' if len(df) == 2040 else 'gk'
     recoms = getRecommendations(sims, df_type=df_type, league=comp, comparison=comparison, age=age, count=count)
