@@ -90,9 +90,9 @@ with result:
     
     def getRecommendations(metric, df_type, league='All', comparison='All positions', age=age_default, count=val):
         if df_type == 'outfield':
-            df_res = player_df.iloc[:, [13, 15, 14, 16, 17]].copy()
+            df_res = df.iloc[:, [13, 15, 14, 16, 17]].copy()
         else:
-            df_res = gk_df.iloc[:, [4, 6, 5, 7,8]].copy()
+            df_res = df.iloc[:, [4, 6, 5, 7,8]].copy()
         df_res['Player'] = list(player_ID.keys())
         df_res.insert(1, 'Similarity', metric)
         df_res = df_res.sort_values(by=['Similarity'], ascending=False)
@@ -125,6 +125,6 @@ with result:
     
 
     sims = engine[query]
-    df_type = 'outfield' if len(df) == 2040 else 'gk'
+    df_type = 'outfield' if len(df) == 2033 else 'gk'
     recoms = getRecommendations(sims, df_type=df_type, league=comp, comparison=comparison, age=age, count=count)
     st.table(recoms)
