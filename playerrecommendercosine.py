@@ -90,15 +90,15 @@ with result:
     
     def getRecommendations(metric, df_type, league='All', comparison='All positions', age=age_default, count=val):
         if df_type == 'outfield':
-            df_res = df.iloc[:, [1, 3, 5, 6, 11, -1]].copy()
+            df_res = df.iloc[:, [13, 15, 14, 16, 17]].copy()
         else:
-            df_res = df.iloc[:, [1, 3, 5, 6, 11]].copy()
+            df_res = df.iloc[:, [13, 15, 14, 16, 17]].copy()
         df_res['Player'] = list(player_ID.keys())
         df_res.insert(1, 'Similarity', metric)
         df_res = df_res.sort_values(by=['Similarity'], ascending=False)
         metric = [str(num) + '%' for num in df_res['Similarity']]
         df_res['Similarity'] = metric
-        df_res = df_res.iloc[1:, :]
+        df_res = df_res.iloc[13:, :]
             
         if comparison == 'Same position' and df_type == 'outfield':
             q_pos = list(df[df['Player'] == query.split(' (')[0]].Pos)[0]
