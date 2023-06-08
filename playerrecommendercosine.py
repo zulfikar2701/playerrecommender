@@ -35,10 +35,10 @@ params = st.container()
 result = st.container()
 
 with header:
-    st.title('Muhammad Zulfikar Arifin - Player Recommender')
+    st.title('Muhammad Zulfikar Arifin - Player Recommender Menggunakan Metrik Cosine Similarity')
 
 with data_info1:
-    st.markdown('Based on the 2022/23 season data for the **Big 5** European leagues :soccer:')
+    st.markdown('Berdasarkan data musim 2022/2023 untuk pemain di **Top 5** liga Eropa (Premier League, La Liga, Ligue 1, Serie A, Bundesliga) :soccer:')
     @st.cache
     def read_info(path):
         return Path(path).read_text(encoding='utf8')
@@ -49,7 +49,7 @@ with data_info1:
 with params:
     st.text(' \n')
     st.text(' \n')
-    st.header('Gunakan filter untuk mengubah parameter')
+    st.header('Gunakan filter pemain')
 
     col1, col2 = st.columns([1, 2.2])
     with col1:
