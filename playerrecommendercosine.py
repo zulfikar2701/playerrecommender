@@ -49,7 +49,7 @@ with data_info1:
 with params:
     st.text(' \n')
     st.text(' \n')
-    st.header('Gunakan filter pemain')
+    st.header('Filter Pemain:')
 
     col1, col2 = st.columns([1, 2.2])
     with col1:
