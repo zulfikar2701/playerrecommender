@@ -12,13 +12,9 @@ Original file is located at
 
 # !pip install streamlit
 
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from tqdm import tqdm
-import pickle
 import streamlit as st
+import pandas as pd
+import pickle
 from pathlib import Path
 
 """#Streamlit"""
@@ -32,17 +28,17 @@ st.set_page_config(
 @st.cache_data
 def getData():
     player_df = pd.read_pickle(
-        r'/content/drive/MyDrive/PlayerRecommender/data_out_df.pickle')
-    with open(r'/content/drive/MyDrive/PlayerRecommender/data_outfield_player_ID.pickle', 'rb') as file:
+        r'pickledata/data_out_df.pickle')
+    with open(r'pickledata/data_outfield_player_ID.pickle', 'rb') as file:
         player_ID = pickle.load(file)
-    with open(r'/content/drive/MyDrive/PlayerRecommender/data_out_engine.pickle', 'rb') as file:
+    with open(r'pickledata/data_out_engine.pickle', 'rb') as file:
         engine = pickle.load(file)
 
     gk_df = pd.read_pickle(
-        r'/content/drive/MyDrive/PlayerRecommender/data_gk_df.pickle')
-    with open(r'/content/drive/MyDrive/PlayerRecommender/data_gk_player_ID.pickle', 'rb') as file:
+        r'pickledata/data_gk_df.pickle')
+    with open(r'pickledata/data_gk_player_ID.pickle', 'rb') as file:
         gk_ID = pickle.load(file)
-    with open(r'/content/drive/MyDrive/PlayerRecommender/data_gk_engine.pickle', 'rb') as file:
+    with open(r'pickledata/data_gk_engine.pickle', 'rb') as file:
         gk_engine = pickle.load(file)
 
     return [player_df, player_ID, engine], [gk_df, gk_ID, gk_engine]
