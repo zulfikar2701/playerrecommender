@@ -35,7 +35,7 @@ params = st.container()
 result = st.container()
 
 with header:
-    st.title('_Player Recommender_ Menggunakan Metrik _Cosine Similarity_ (Beta)')
+    st.title('Simple Player Recommender (Beta)')
 
 with data_info1:
     st.markdown('Berdasarkan data musim 2022/2023 untuk pemain di **Top 5** Liga Eropa (Premier League, La Liga, Ligue 1, Serie A, Bundesliga) :soccer:')
