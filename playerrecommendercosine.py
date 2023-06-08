@@ -1,10 +1,7 @@
-
 import streamlit as st
 import pandas as pd
 import pickle
 from pathlib import Path
-
-"""#Streamlit"""
 
 st.set_page_config(
     page_title="Player Recommender",
