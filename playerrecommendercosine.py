@@ -49,11 +49,11 @@ with data_info1:
 with params:
     st.text(' \n')
     st.text(' \n')
-    st.header('Tweak the parameters')
+    st.header('Gunakan filter untuk mengubah parameter')
 
     col1, col2 = st.columns([1, 2.2])
     with col1:
-        radio = st.radio('Player type', ['Outfielder', 'Goalkeeper'])
+        radio = st.radio('Tipe pemain', ['Outfielder', 'Goalkeeper'])
     with col2:
         if radio == 'Outfielder':
             df, player_ID, engine = outfield_data
@@ -61,7 +61,7 @@ with params:
             df, player_ID, engine = gk_data
         players = sorted(list(player_ID.keys()))
         age_default = (15, 41)
-        query = st.selectbox('Player name', players,
+        query = st.selectbox('Nama pemain', players,
             help='Ketik tanpa menghapus kata, untuk mencari pemain dari klub tertentu, ketikkan nama klub tersebut')
 
     col4, col5, col6, col7 = st.columns([0.7, 1, 1, 1])
@@ -70,22 +70,22 @@ with params:
             res, val, step = (5, 20), 10, 5
         else:
             res, val, step = (3, 10), 5, 1
-        count = st.slider('Number of results', min_value=res[0], max_value=res[1], value=val, step=step)
+        count = st.slider('Jumlah pemain yang ditampilkan', min_value=res[0], max_value=res[1], value=val, step=step)
     with col5:
-        comp = st.selectbox('League', ['All', 'Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1'],
-            help='Leagues to get recommendations from. \'All\' leagues by default.')
+        comp = st.selectbox('Liga', ['All', 'Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1'],
+            help='Filter liga pemain tersebut berada')
     with col6:
-        comparison = st.selectbox('Comparison with', ['All positions', 'Same position'],
-            help='Whether to compare the selected player with all positions or just the same defined position in the dataset. \'All \ positions\' by default.')
+        comparison = st.selectbox('Bandingkan dengan', ['Semua posisi', 'Posisi yang sama'],
+            help='Semua posisi akan menampilkan perbandingan dengan pemain dari berbagai posisi, Posisi yang sama hanya akan menampilkan pemain dengan posisi yang sama dengan pemain input')
     with col7:
-        age = st.slider('Age bracket', min_value=age_default[0], max_value=age_default[1], value=age_default,
-        help='Age range to get recommendations from. Drag the sliders on either side. \'All\' ages by default.')
+        age = st.slider('Umur', min_value=age_default[0], max_value=age_default[1], value=age_default,
+        help='Umur pemain yang akan menjadi perbandingan')
 
 with result:
     st.text(' \n')
     st.text(' \n')
     st.text(' \n')
-    st.markdown('_showing recommendations for_ **{}**'.format(query))
+    st.markdown('_Menampilkan rekomendasi untuk_ **{}**'.format(query))
     
     
     def getRecommendations(metric, df_type, league='All', comparison='All positions', age=age_default, count=val):
