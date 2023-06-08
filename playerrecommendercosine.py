@@ -43,7 +43,7 @@ with data_info1:
     def read_info(path):
         return Path(path).read_text(encoding='utf8')
     
-    st.markdown(read_info('info.md'), unsafe_allow_html=True)
+    
 
 
 with params:
