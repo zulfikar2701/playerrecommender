@@ -38,7 +38,7 @@ with header:
     st.title('Muhammad Zulfikar Arifin - Player Recommender Menggunakan Metrik Cosine Similarity')
 
 with data_info1:
-    st.markdown('Berdasarkan data musim 2022/2023 untuk pemain di **Top 5** liga Eropa (Premier League, La Liga, Ligue 1, Serie A, Bundesliga) :soccer:')
+    st.markdown('Berdasarkan data musim 2022/2023 untuk pemain di **Top 5** Liga Eropa (Premier League, La Liga, Ligue 1, Serie A, Bundesliga) :soccer:')
     @st.cache
     def read_info(path):
         return Path(path).read_text(encoding='utf8')
@@ -70,7 +70,7 @@ with params:
             res, val, step = (5, 20), 10, 5
         else:
             res, val, step = (3, 10), 5, 1
-        count = st.slider('Jumlah pemain yang ditampilkan', min_value=res[0], max_value=res[1], value=val, step=step)
+        count = st.slider('Jumlah hasil', min_value=res[0], max_value=res[1], value=val, step=step)
     with col5:
         comp = st.selectbox('Liga', ['All', 'Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1'],
             help='Filter liga pemain tersebut berada')
@@ -85,7 +85,7 @@ with result:
     st.text(' \n')
     st.text(' \n')
     st.text(' \n')
-    st.markdown('_Menampilkan rekomendasi untuk_ **{}**'.format(query))
+    st.markdown('_Menampilkan rekomendasi untuk pemain yang mirip dengan_ **{}**'.format(query))
     
     
     def getRecommendations(metric, df_type, league='All', comparison='All positions', age=age_default, count=val):
