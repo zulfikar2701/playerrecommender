@@ -88,7 +88,7 @@ with result:
     st.markdown('_Menampilkan rekomendasi untuk pemain yang mirip dengan_ **{}**'.format(query))
     
     
-    def getRecommendations(metric, df_type, league='All', comparison='All positions', age=age_default, count=val):
+    def getRecommendations(metric, df_type, league='All', comparison='Semua posisi', age=age_default, count=val):
         if df_type == 'outfield':
             df_res = df.iloc[:, [13, 15, 14, 16, 17]].copy()
         else:
@@ -100,7 +100,7 @@ with result:
         df_res['Similarity'] = metric
         df_res = df_res.iloc[13:, :]
             
-        if comparison == 'Same position' and df_type == 'outfield':
+        if comparison == 'Posisi yang sama' and df_type == 'outfield':
             q_pos = list(df[df['Player'] == query.split(' (')[0]].Pos)[0]
             df_res = df_res[df_res['Pos'] == q_pos]
             
