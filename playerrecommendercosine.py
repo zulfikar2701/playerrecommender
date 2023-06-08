@@ -35,7 +35,7 @@ params = st.container()
 result = st.container()
 
 with header:
-    st.title('Muhammad Zulfikar Arifin - Player Recommender Menggunakan Metrik Cosine Similarity')
+    st.title('Player Recommender Menggunakan Metrik Cosine Similarity')
 
 with data_info1:
     st.markdown('Berdasarkan data musim 2022/2023 untuk pemain di **Top 5** Liga Eropa (Premier League, La Liga, Ligue 1, Serie A, Bundesliga) :soccer:')
