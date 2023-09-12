@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 from pathlib import Path
+import time
 
 st.set_page_config(
     page_title="Player Recommender",
@@ -89,6 +90,7 @@ with result:
     
     
     def getRecommendations(metric, df_type, league='All', comparison='Semua posisi', age=age_default, count=val):
+        start_time = time.time()
         if df_type == 'outfield':
             df_res = df.iloc[:, [13, 15, 14, 16, 17]].copy()
         else:
@@ -121,6 +123,9 @@ with result:
             mp90 = [str(round(num, 1)) for num in df_res['90s']]
             df_res['90s'] = mp90
         df_res.rename(columns={'Pos': 'Position', 'Comp': 'League'}, inplace=True)
+        end_time = time.time()
+        running_time = end_time - start_time
+        print(f"Recommendation Function Running Time: {running_time:.2f} seconds")
         return df_res
     
 
