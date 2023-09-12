@@ -125,7 +125,7 @@ with result:
         df_res.rename(columns={'Pos': 'Position', 'Comp': 'League'}, inplace=True)
         end_time = time.time()
         running_time = end_time - start_time
-        print(f"Recommendation Function Running Time: {running_time:.2f} seconds")
+        st.write(f"Recommendation Function Running Time: {running_time:.2f} seconds")
         return df_res
     
 
