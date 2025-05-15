@@ -1,2 +1,3 @@
-pandas==1.1.5
+numpy==1.26.4           # last 1.x series that pand​as 1.1 understands
+pandas==1.1.5           # keep as-is, just making the numpy match
 streamlit==1.10.0
